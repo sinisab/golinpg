@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2018 at 05:46 PM
+-- Generation Time: Sep 11, 2018 at 03:17 PM
 -- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -228,16 +228,18 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `user_name` varchar(255) NOT NULL,
   `user_pass` varchar(255) NOT NULL,
-  `user_role` varchar(255) NOT NULL
+  `user_role` varchar(255) NOT NULL,
+  `randSalt` varchar(255) NOT NULL DEFAULT '$2y$10$iusesomecrazystrings22'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_name`, `user_pass`, `user_role`) VALUES
-(1, 'sinisa', '12345', 'admin'),
-(3, 'madk', 'kll', 'user');
+INSERT INTO `users` (`id`, `user_name`, `user_pass`, `user_role`, `randSalt`) VALUES
+(59, 'sinisa', '$1$gcErtLHy$DLAbXeLeDnuy4ieHt8nLt0', 'admin', '$2y$10$iusesomecrazystrings22'),
+(60, 'sinisa2', '$2y$10$iusesomecrazystrings2uz/HkvnvHFd41nowL3oLCmiMEM4CLQyW', 'admin', '$2y$10$iusesomecrazystrings22'),
+(61, 'neko1', '$2y$10$iusesomecrazystrings2uvgnjnDOGIE6JPA9zzq36EdPnYMUav/S', 'user', '$2y$10$iusesomecrazystrings22');
 
 -- --------------------------------------------------------
 
@@ -383,7 +385,7 @@ ALTER TABLE `sastanci`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `zakazanisastanci`
