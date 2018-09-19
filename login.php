@@ -20,12 +20,7 @@ if(isset($_POST['login'])){
          $db_pass=$row['user_pass'];
          $db_user_role=$row['user_role'];
     }
-    $password=crypt($password,$db_pass);
-if($username!==$db_username&&$password!==$db_pass){
-    header("Location: forma.php");
-
-}
-else if(($username==$db_username)&&($password==$db_pass)){
+if(password_verify($password,$db_pass)){
     $_SESSION['username']=$db_username;
     $_SESSION['password']=$db_pass;
     $_SESSION['user_role']=$db_user_role;
