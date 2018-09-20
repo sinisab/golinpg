@@ -9,12 +9,16 @@ if (isset($_POST['submit'])){
    
     
     $newpass=$_POST['novipass'];
+    $newpass=password_hash($newpass, PASSWORD_BCRYPT, array('cost'=>12));
     $query2="UPDATE users SET user_pass='{$newpass}' WHERE user_name = '{$_SESSION['username']}'";
     $promijenisifru=mysqli_query($connection,$query2);
+    if(!$promijenisifru){
+        die ('UPIT POGRESAN'.mysqli_error($connection));
     }
     
     
-
+    
+}
 
 
 ?>
